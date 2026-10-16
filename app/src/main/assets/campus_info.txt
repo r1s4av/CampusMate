@@ -1,0 +1,18 @@
+=== CAMPUSMATE INFO ===
+Welcome to Campus Central!
+
+1. Library Hours:
+   - Monday to Friday: 8:00 AM - 11:00 PM
+   - Weekends: 10:00 AM - 8:00 PM
+
+2. Campus Security / Emergency:
+   - Emergency Helpline: 555-0199
+   - Campus Security Desk: Building A, Room 101
+
+3. Dining & Cafeteria:
+   - Main Dining Hall: 7:00 AM - 9:00 PM
+   - Student Union Café: 8:00 AM - 6:00 PM
+
+4. Administrative Offices:
+   - Registrar Office: Mon-Fri 9:00 AM - 4:00 PM
+   - Financial Aid: Mon-Fri 9:00 AM - 4:00 PM

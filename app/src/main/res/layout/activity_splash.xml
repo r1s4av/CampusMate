@@ -9,6 +9,7 @@
     android:padding="24dp">
 
     <ImageView
+        android:id="@+id/logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/campusmate_logo"
