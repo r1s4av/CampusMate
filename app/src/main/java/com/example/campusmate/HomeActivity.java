@@ -1,5 +1,6 @@
 package com.example.campusmate;
 
+<<<<<<< HEAD
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -18,10 +19,22 @@ public class HomeActivity extends Activity {
     private CardView cardEvents, cardProfile, cardCampusInfo, cardMap;
     private Button btnLogout;
     private String studentEmail;
+=======
+import android.os.Bundle;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class HomeActivity extends AppCompatActivity {
+>>>>>>> 1c55520 (Add CampusMate home screen and drawable resources)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< HEAD
         setContentView(R.layout.activity_home);
 
         // Get logged-in student's email
@@ -131,3 +144,14 @@ public class HomeActivity extends Activity {
         return info;
     }
 }
+=======
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_home);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+    }
+}
+>>>>>>> 1c55520 (Add CampusMate home screen and drawable resources)
