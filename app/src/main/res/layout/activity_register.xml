@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F7FB">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- CampusMate Logo -->
+        <ImageView
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/campusmate_logo"
+            android:contentDescription="CampusMate logo"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="12dp" />
+
+        <!-- Heading -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Account"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#183153"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register to get started with CampusMate"
+            android:textSize="14sp"
+            android:textColor="#687386"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="22dp" />
+
+        <!-- Full Name -->
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full Name"
+            android:inputType="textPersonName|textCapWords"
+            android:singleLine="true"
+            android:padding="14dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3659A2" />
+
+        <!-- Roll Number -->
+        <EditText
+            android:id="@+id/etRollNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Roll Number"
+            android:inputType="text"
+            android:singleLine="true"
+            android:padding="14dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3659A2" />
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="College Email"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:padding="14dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3659A2" />
+
+        <!-- Department -->
+        <EditText
+            android:id="@+id/etDepartment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Department (e.g. CSE)"
+            android:inputType="textCapWords"
+            android:singleLine="true"
+            android:padding="14dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3659A2" />
+
+        <!-- Semester -->
+        <EditText
+            android:id="@+id/etSemester"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Semester (1-8)"
+            android:inputType="number"
+            android:singleLine="true"
+            android:padding="14dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3659A2" />
+
+        <!-- Gender -->
+        <EditText
+            android:id="@+id/etGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Gender"
+            android:inputType="textCapWords"
+            android:singleLine="true"
+            android:padding="14dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3659A2" />
+
+        <!-- Phone -->
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:maxLength="15"
+            android:singleLine="true"
+            android:padding="14dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3659A2" />
+
+        <!-- Password -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Create Password"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:padding="14dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3659A2" />
+
+        <!-- Confirm Password -->
+        <EditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:padding="14dp"
+            android:layout_marginBottom="22dp"
+            android:backgroundTint="#3659A2" />
+
+        <!-- Register Button -->
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Create Account"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#234A91" />
+
+        <!-- Back to Login -->
+        <TextView
+            android:id="@+id/tvGoToLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account? Login"
+            android:textColor="#234A91"
+            android:textSize="14sp"
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp" />
+
+    </LinearLayout>
+
+</ScrollView>
