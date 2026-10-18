@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+<<<<<<< HEAD
+=======
+    <!-- Required for Google Maps -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+>>>>>>> 879e7b8943b2123630cb35e18312e38436ab67d9
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,8 +17,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CampusMate">
+<<<<<<< HEAD
         <activity
             android:name=".MainActivity"
+=======
+
+        <!-- Google Maps API key is read from local.properties -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
+        <activity
+            android:name=".SplashActivity"
+>>>>>>> 879e7b8943b2123630cb35e18312e38436ab67d9
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -22,7 +39,35 @@
             </intent-filter>
         </activity>
         <activity
+<<<<<<< HEAD
             android:name=".Attendance"
+=======
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".EventsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".CampusInfoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".MapActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".RegisterActivity"
+>>>>>>> 879e7b8943b2123630cb35e18312e38436ab67d9
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

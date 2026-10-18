@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#F7FAFF"
+    android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/campusmate_logo"
+        android:contentDescription="CampusMate Logo"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CampusMate"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:textColor="#123D7A"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Campus. Your Academic Life.\nOne App."
+        android:textSize="16sp"
+        android:textColor="#555555"
+        android:gravity="center"
+        android:layout_marginTop="8dp" />
+
+    <ProgressBar
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="28dp"
+        android:indeterminate="true" />
+
+</LinearLayout>
