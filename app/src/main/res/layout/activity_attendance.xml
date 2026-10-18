@@ -1,81 +1,88 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#F4F8F9">
+    android:background="#F7FAFF">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="24dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Attendance"
             android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="#176B78"
+            android:textColor="#0D47A1"
             android:layout_marginBottom="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select Subject"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:textColor="#333333"/>
 
         <Spinner
             android:id="@+id/subjectSpinner"
             android:layout_width="match_parent"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select Date"
             android:textSize="16sp"
-            android:layout_marginTop="15dp"/>
+            android:textColor="#333333"
+            android:layout_marginBottom="5dp"/>
 
         <DatePicker
             android:id="@+id/attendanceDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:calendarViewShown="false"
-            android:datePickerMode="spinner"/>
+            android:datePickerMode="spinner"
+            android:layout_marginBottom="15dp"/>
 
         <RadioGroup
             android:id="@+id/statusGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="15dp">
+            android:layout_marginBottom="20dp">
 
             <RadioButton
                 android:id="@+id/presentRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Present"/>
+                android:text="Present"
+                android:textColor="#333333"/>
 
             <RadioButton
                 android:id="@+id/absentRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Absent"
-                android:layout_marginStart="25dp"/>
+                android:textColor="#333333"
+                android:layout_marginStart="30dp"/>
 
         </RadioGroup>
 
         <Button
             android:id="@+id/saveAttendance"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="Save Attendance"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#176B78"/>
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#1976D2"
+            android:textStyle="bold"
+            android:layout_marginBottom="25dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -83,8 +90,8 @@
             android:text="Saved Attendance"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#176B78"
-            android:layout_marginTop="25dp"/>
+            android:textColor="#0D47A1"
+            android:layout_marginBottom="10dp"/>
 
         <TextView
             android:id="@+id/attendanceList"
@@ -92,8 +99,8 @@
             android:layout_height="wrap_content"
             android:text="No records available"
             android:textSize="15sp"
-            android:padding="12dp"/>
+            android:textColor="#333333"
+            android:padding="10dp"/>
 
     </LinearLayout>
-
 </ScrollView>

@@ -2,12 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-<<<<<<< HEAD
-=======
-    <!-- Required for Google Maps -->
+    <!-- Required permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
 
->>>>>>> 879e7b8943b2123630cb35e18312e38436ab67d9
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,31 +14,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CampusMate">
-<<<<<<< HEAD
-        <activity
-            android:name=".MainActivity"
-=======
 
-        <!-- Google Maps API key is read from local.properties -->
+        <!-- Google Maps API key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
 
+        <!-- Launcher Activity -->
         <activity
             android:name=".SplashActivity"
->>>>>>> 879e7b8943b2123630cb35e18312e38436ab67d9
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- App Activities -->
         <activity
-<<<<<<< HEAD
-            android:name=".Attendance"
-=======
+            android:name=".MainActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
@@ -67,9 +62,19 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".RegisterActivity"
->>>>>>> 879e7b8943b2123630cb35e18312e38436ab67d9
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- Your New Attendance & Assignment Modules -->
+        <activity
+            android:name=".Attendance"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".Assignment"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>
