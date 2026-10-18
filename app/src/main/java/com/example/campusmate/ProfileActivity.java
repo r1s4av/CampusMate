@@ -19,7 +19,7 @@ public class ProfileActivity extends Activity {
     private static final int PICK_IMAGE_REQUEST = 1;
 
     private ImageView imgProfile, btnChangePhoto, btnBack;
-    private TextView tvStudentName, tvStudentEmail;
+    private TextView tvStudentName, tvRollNumber, tvStudentEmail;
     private TextView tvDepartment, tvSemester, tvGender, tvPhone;
     private Button btnEditProfile;
 
@@ -27,6 +27,7 @@ public class ProfileActivity extends Activity {
 
     private String currentEmail = "";
     private String studentName = "";
+    private String rollNumber = "";
     private String studentEmail = "";
     private String department = "";
     private String semester = "";
@@ -46,6 +47,7 @@ public class ProfileActivity extends Activity {
         btnChangePhoto = findViewById(R.id.btnChangePhoto);
 
         tvStudentName = findViewById(R.id.tvStudentName);
+        tvRollNumber = findViewById(R.id.tvRollNumber);
         tvStudentEmail = findViewById(R.id.tvStudentEmail);
         tvDepartment = findViewById(R.id.tvDepartment);
         tvSemester = findViewById(R.id.tvSemester);
@@ -56,7 +58,7 @@ public class ProfileActivity extends Activity {
 
         btnBack.setOnClickListener(v -> finish());
 
-        // Email must be passed from LoginActivity via HomeActivity.
+        // Email passed from LoginActivity via HomeActivity
         String email = getIntent().getStringExtra("student_email");
 
         if (email == null || email.trim().isEmpty()) {
@@ -97,6 +99,7 @@ public class ProfileActivity extends Activity {
             }
 
             studentName = readValue(cursor, "name");
+            rollNumber = readValue(cursor, "roll_number");
             studentEmail = readValue(cursor, "email");
             department = readValue(cursor, "department");
             semester = readValue(cursor, "semester");
@@ -133,6 +136,7 @@ public class ProfileActivity extends Activity {
 
     private void displayProfile() {
         tvStudentName.setText(studentName);
+        tvRollNumber.setText(rollNumber);
         tvStudentEmail.setText(studentEmail);
         tvDepartment.setText(department);
         tvSemester.setText(semester);
@@ -149,18 +153,16 @@ public class ProfileActivity extends Activity {
         try {
             imgProfile.setImageURI(Uri.parse(photoUri));
         } catch (Exception e) {
-            // Keep the XML default image if the saved photo is unavailable.
+            // Keep default image if saved photo is unavailable
         }
     }
 
     private void openImagePicker() {
-
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("image/*");
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
 
@@ -186,9 +188,7 @@ public class ProfileActivity extends Activity {
                     imageUri,
                     Intent.FLAG_GRANT_READ_URI_PERMISSION
             );
-        } catch (SecurityException ignored) {
-            // Some document providers may not support persistent access.
-        }
+        } catch (SecurityException ignored) {}
 
         String newPhotoUri = imageUri.toString();
 
@@ -200,53 +200,30 @@ public class ProfileActivity extends Activity {
         if (saved) {
             photoUri = newPhotoUri;
             imgProfile.setImageURI(imageUri);
-
-            Toast.makeText(
-                    this,
-                    "Profile photo saved",
-                    Toast.LENGTH_SHORT
-            ).show();
-
+            Toast.makeText(this, "Profile photo saved", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(
-                    this,
-                    "Could not save profile photo",
-                    Toast.LENGTH_SHORT
-            ).show();
+            Toast.makeText(this, "Could not save profile photo", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void showEditDialog() {
-
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        int padding = (int) (20 * getResources()
-                .getDisplayMetrics().density);
-
+        int padding = (int) (20 * getResources().getDisplayMetrics().density);
         layout.setPadding(padding, 0, padding, 0);
 
         EditText nameInput = addField(layout, "Name", studentName);
+        EditText rollInput = addField(layout, "Roll Number", rollNumber);
         EditText emailInput = addField(layout, "Email", studentEmail);
-        EditText departmentInput =
-                addField(layout, "Department", department);
-        EditText semesterInput =
-                addField(layout, "Semester (1-8)", semester);
+        EditText departmentInput = addField(layout, "Department", department);
+        EditText semesterInput = addField(layout, "Semester (1-8)", semester);
         EditText genderInput = addField(layout, "Gender", gender);
         EditText phoneInput = addField(layout, "Phone", phone);
 
-        semesterInput.setInputType(
-                android.text.InputType.TYPE_CLASS_NUMBER
-        );
-
-        emailInput.setInputType(
-                android.text.InputType.TYPE_CLASS_TEXT
-                        | android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
-        );
-
-        phoneInput.setInputType(
-                android.text.InputType.TYPE_CLASS_PHONE
-        );
+        semesterInput.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+        emailInput.setInputType(android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        phoneInput.setInputType(android.text.InputType.TYPE_CLASS_PHONE);
 
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle("Edit Student Profile")
@@ -260,11 +237,10 @@ public class ProfileActivity extends Activity {
         ).setOnClickListener(v -> {
 
             String newName = nameInput.getText().toString().trim();
+            String newRoll = rollInput.getText().toString().trim();
             String newEmail = emailInput.getText().toString().trim();
-            String newDepartment =
-                    departmentInput.getText().toString().trim();
-            String semesterText =
-                    semesterInput.getText().toString().trim();
+            String newDepartment = departmentInput.getText().toString().trim();
+            String semesterText = semesterInput.getText().toString().trim();
             String newGender = genderInput.getText().toString().trim();
             String newPhone = phoneInput.getText().toString().trim();
 
@@ -272,26 +248,24 @@ public class ProfileActivity extends Activity {
                 nameInput.setError("Enter your name");
                 return;
             }
-
+            if (newRoll.isEmpty()) {
+                rollInput.setError("Enter roll number");
+                return;
+            }
             if (!Patterns.EMAIL_ADDRESS.matcher(newEmail).matches()) {
                 emailInput.setError("Enter a valid email");
                 return;
             }
-
             if (newDepartment.isEmpty()) {
                 departmentInput.setError("Enter your department");
                 return;
             }
 
             int newSemester;
-
             try {
                 newSemester = Integer.parseInt(semesterText);
-
                 if (newSemester < 1 || newSemester > 8) {
-                    semesterInput.setError(
-                            "Semester must be between 1 and 8"
-                    );
+                    semesterInput.setError("Semester must be between 1 and 8");
                     return;
                 }
             } catch (NumberFormatException e) {
@@ -303,10 +277,7 @@ public class ProfileActivity extends Activity {
                 genderInput.setError("Enter your gender");
                 return;
             }
-
-            if (newPhone.isEmpty()
-                    || !Patterns.PHONE.matcher(newPhone).matches()
-                    || newPhone.replaceAll("\\D", "").length() < 7) {
+            if (newPhone.isEmpty() || !Patterns.PHONE.matcher(newPhone).matches()) {
                 phoneInput.setError("Enter a valid phone number");
                 return;
             }
@@ -314,6 +285,7 @@ public class ProfileActivity extends Activity {
             boolean saved = databaseHelper.updateStudentProfile(
                     currentEmail,
                     newName,
+                    newRoll,
                     newEmail,
                     newDepartment,
                     newSemester,
@@ -324,47 +296,30 @@ public class ProfileActivity extends Activity {
 
             if (saved) {
                 studentName = newName;
+                rollNumber = newRoll;
                 studentEmail = newEmail;
                 department = newDepartment;
                 semester = String.valueOf(newSemester);
                 gender = newGender;
                 phone = newPhone;
-
-                // Keep the lookup key updated if the email changed.
                 currentEmail = newEmail;
 
                 displayProfile();
-
-                Toast.makeText(
-                        this,
-                        "Profile saved successfully",
-                        Toast.LENGTH_SHORT
-                ).show();
-
+                Toast.makeText(this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
-
             } else {
-                Toast.makeText(
-                        this,
-                        "Could not save profile. Email may already be in use.",
-                        Toast.LENGTH_LONG
-                ).show();
+                Toast.makeText(this, "Could not save profile. Email or Roll Number may already be in use.", Toast.LENGTH_LONG).show();
             }
         }));
 
         dialog.show();
     }
 
-    private EditText addField(
-            LinearLayout layout,
-            String hint,
-            String value) {
-
+    private EditText addField(LinearLayout layout, String hint, String value) {
         EditText input = new EditText(this);
         input.setHint(hint);
         input.setSingleLine(true);
         input.setText(value);
-
         layout.addView(input);
         return input;
     }
@@ -372,7 +327,6 @@ public class ProfileActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         if (databaseHelper != null) {
             databaseHelper.close();
         }

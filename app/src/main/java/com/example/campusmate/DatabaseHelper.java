@@ -267,6 +267,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean updateStudentProfile(
             String currentEmail,
             String name,
+            String rollNumber,
             String newEmail,
             String department,
             int semester,
@@ -282,6 +283,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         values.put("name", name);
+        values.put("roll_number", rollNumber);
         values.put("email", newEmail);
         values.put("department", department);
         values.put("semester", semester);
