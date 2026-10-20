@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7FAFF"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="#F0F5FF">
+
+        <!-- Welcome Banner -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/campus_banner_bg"
+            android:padding="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="28dp"
+            android:elevation="4dp">
+
+            <ImageView
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:src="@drawable/campusmate_logo"
+                android:scaleType="fitCenter"
+                android:contentDescription="CampusMate logo"
+                android:layout_marginBottom="18dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your Campus,\nYour Community."
+                android:textSize="29sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:lineSpacingExtra="3dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Discover facilities, find useful services and make the most of campus life."
+                android:textSize="15sp"
+                android:textColor="#E3F2FD"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginTop="12dp" />
+
+        </LinearLayout>
+
+        <!-- Page Heading -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Campus Facilities"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#123D7A"
+            android:layout_marginBottom="14dp" />
+
+        <!-- Central Library Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="18dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/campus_info_card">
+
+            <TextView
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:gravity="center"
+                android:text="📚"
+                android:textSize="30sp"
+                android:background="#E3F2FD" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Central Library"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#123D7A" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Study spaces, books and academic resources"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hours: 08:00 AM - 06:00 PM"
+                    android:textSize="13sp"
+                    android:textColor="#1565C0"
+                    android:layout_marginTop="6dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Cafeteria Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="18dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/campus_info_card">
+
+            <TextView
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:gravity="center"
+                android:text="🍽️"
+                android:textSize="30sp"
+                android:background="#FFF3E0" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Campus Cafeteria"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#123D7A" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Food, refreshments and student gathering space"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hours: 08:30 AM - 05:30 PM"
+                    android:textSize="13sp"
+                    android:textColor="#1565C0"
+                    android:layout_marginTop="6dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Auditorium Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="18dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/campus_info_card">
+
+            <TextView
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:gravity="center"
+                android:text="🎭"
+                android:textSize="30sp"
+                android:background="#F3E5F5" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Main Auditorium"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#123D7A" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="College functions, seminars and cultural events"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Emergency Information -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Emergency Information"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#123D7A"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="For campus security, medical assistance or other emergencies, contact the official campus administration or security office."
+            android:textSize="15sp"
+            android:textColor="#555555"
+            android:background="#FFFFFF"
+            android:padding="18dp" />
+
+    </LinearLayout>
+</ScrollView>

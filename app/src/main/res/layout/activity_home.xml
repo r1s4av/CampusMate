@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7FAFF">
+    android:background="#F7FAFF"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,8 +47,85 @@
                     android:text="Your Campus Dashboard"
                     android:textSize="14sp"
                     android:textColor="#555555" />
+
             </LinearLayout>
         </LinearLayout>
+
+        <!-- Attendance Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardAttendance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:elevation="4dp"
+            android:radius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📋 Attendance"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#123D7A" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mark and manage your subject-wise attendance."
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="6dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Assignments Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardAssignments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:elevation="4dp"
+            android:radius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📝 Assignments"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#123D7A" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add assignments, track due dates and completion."
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="6dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <!-- Events Card -->
         <androidx.cardview.widget.CardView
@@ -58,7 +136,8 @@
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
-            android:elevation="4dp">
+            android:elevation="4dp"
+            android:radius="12dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -82,6 +161,7 @@
                     android:textSize="14sp"
                     android:textColor="#666666"
                     android:layout_marginTop="6dp" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -94,7 +174,8 @@
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
-            android:elevation="4dp">
+            android:elevation="4dp"
+            android:radius="12dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -118,10 +199,11 @@
                     android:textSize="14sp"
                     android:textColor="#666666"
                     android:layout_marginTop="6dp" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Campus Info Card -->
+        <!-- Campus Information Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardCampusInfo"
             android:layout_width="match_parent"
@@ -130,7 +212,8 @@
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
-            android:elevation="4dp">
+            android:elevation="4dp"
+            android:radius="12dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -154,10 +237,11 @@
                     android:textSize="14sp"
                     android:textColor="#666666"
                     android:layout_marginTop="6dp" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- NEW: Campus Map Card -->
+        <!-- Campus Map Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardMap"
             android:layout_width="match_parent"
@@ -166,7 +250,8 @@
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
-            android:elevation="4dp">
+            android:elevation="4dp"
+            android:radius="12dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -190,6 +275,7 @@
                     android:textSize="14sp"
                     android:textColor="#666666"
                     android:layout_marginTop="6dp" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

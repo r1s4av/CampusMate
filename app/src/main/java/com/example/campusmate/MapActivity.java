@@ -9,6 +9,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapActivity extends AppCompatActivity
@@ -20,9 +21,8 @@ public class MapActivity extends AppCompatActivity
         setContentView(R.layout.activity_map);
 
         SupportMapFragment mapFragment =
-                (SupportMapFragment)
-                        getSupportFragmentManager()
-                                .findFragmentById(R.id.map);
+                (SupportMapFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.map);
 
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
@@ -32,34 +32,49 @@ public class MapActivity extends AppCompatActivity
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
-        // Replace these example coordinates with
-        // your actual campus locations.
-        LatLng library =
-                new LatLng(30.0000, 76.0000);
+        // Campus locations
+        LatLng library = new LatLng(30.0000, 76.0000);
+        LatLng mainBuilding = new LatLng(30.0010, 76.0010);
+        LatLng cafeteria = new LatLng(29.9990, 76.0020);
 
-        LatLng mainBuilding =
-                new LatLng(30.0010, 76.0010);
-
-        LatLng cafeteria =
-                new LatLng(29.9990, 76.0020);
-
-        googleMap.addMarker(
+        // Add markers with place names
+        Marker libraryMarker = googleMap.addMarker(
                 new MarkerOptions()
                         .position(library)
-                        .title("Library"));
+                        .title("Central Library")
+                        .snippet("Campus Library")
+        );
 
-        googleMap.addMarker(
+        Marker buildingMarker = googleMap.addMarker(
                 new MarkerOptions()
                         .position(mainBuilding)
-                        .title("Main Building"));
+                        .title("Main Building")
+                        .snippet("Main Academic Block")
+        );
 
-        googleMap.addMarker(
+        Marker cafeteriaMarker = googleMap.addMarker(
                 new MarkerOptions()
                         .position(cafeteria)
-                        .title("Cafeteria"));
+                        .title("Campus Cafeteria")
+                        .snippet("Food and Refreshments")
+        );
 
+        // Show all place names when the map opens
+        if (libraryMarker != null) {
+            libraryMarker.showInfoWindow();
+        }
+
+        if (buildingMarker != null) {
+            buildingMarker.showInfoWindow();
+        }
+
+        if (cafeteriaMarker != null) {
+            cafeteriaMarker.showInfoWindow();
+        }
+
+        // Focus camera on the main building
         googleMap.moveCamera(
-                CameraUpdateFactory.newLatLngZoom(
-                        mainBuilding, 16f));
+                CameraUpdateFactory.newLatLngZoom(mainBuilding, 16f)
+        );
     }
 }

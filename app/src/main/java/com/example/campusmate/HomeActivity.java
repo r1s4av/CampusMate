@@ -1,38 +1,82 @@
 package com.example.campusmate;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.activity.ComponentActivity;
+import androidx.activity.OnBackPressedCallback;
 import androidx.cardview.widget.CardView;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+public class HomeActivity extends ComponentActivity {
 
-public class HomeActivity extends Activity {
-
+    private CardView cardAttendance, cardAssignments;
     private CardView cardEvents, cardProfile, cardCampusInfo, cardMap;
     private Button btnLogout;
+
     private String studentEmail;
+    private boolean isCampusInfoOpen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
 
-        // Get logged-in student's email
         studentEmail = getIntent().getStringExtra("student_email");
 
-        // Initialize views
+        // Handle Back button using AndroidX
+        getOnBackPressedDispatcher().addCallback(
+                this,
+                new OnBackPressedCallback(true) {
+                    @Override
+                    public void handleOnBackPressed() {
+                        if (isCampusInfoOpen) {
+                            showDashboard();
+                        } else {
+                            finish();
+                        }
+                    }
+                }
+        );
+
+        showDashboard();
+    }
+
+    // Display the dashboard
+    private void showDashboard() {
+
+        isCampusInfoOpen = false;
+
+        setContentView(R.layout.activity_home);
+
+        // Initialize dashboard views
+        cardAttendance = findViewById(R.id.cardAttendance);
+        cardAssignments = findViewById(R.id.cardAssignments);
         cardEvents = findViewById(R.id.cardEvents);
         cardProfile = findViewById(R.id.cardProfile);
         cardCampusInfo = findViewById(R.id.cardCampusInfo);
         cardMap = findViewById(R.id.cardMap);
         btnLogout = findViewById(R.id.btnLogout);
+
+        // Open Attendance screen
+        cardAttendance.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    HomeActivity.this,
+                    Attendance.class
+            );
+            intent.putExtra("student_email", studentEmail);
+            startActivity(intent);
+        });
+
+        // Open Assignments screen
+        cardAssignments.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    HomeActivity.this,
+                    Assignment.class
+            );
+            intent.putExtra("student_email", studentEmail);
+            startActivity(intent);
+        });
 
         // Open Events screen
         cardEvents.setOnClickListener(v -> {
@@ -43,7 +87,7 @@ public class HomeActivity extends Activity {
             startActivity(intent);
         });
 
-        // Open Profile screen and pass student email
+        // Open Profile screen
         cardProfile.setOnClickListener(v -> {
             if (studentEmail == null || studentEmail.trim().isEmpty()) {
                 Toast.makeText(
@@ -51,7 +95,6 @@ public class HomeActivity extends Activity {
                         "Student email not found. Please login again.",
                         Toast.LENGTH_SHORT
                 ).show();
-
                 return;
             }
 
@@ -59,23 +102,17 @@ public class HomeActivity extends Activity {
                     HomeActivity.this,
                     ProfileActivity.class
             );
-
             intent.putExtra("student_email", studentEmail);
             startActivity(intent);
         });
 
-        // Show Campus Information
+        // Display Campus Info XML in the same Activity
         cardCampusInfo.setOnClickListener(v -> {
-            String info = readCampusInfo();
-
-            new AlertDialog.Builder(HomeActivity.this)
-                    .setTitle("Campus Info & Hours")
-                    .setMessage(info)
-                    .setPositiveButton("OK", null)
-                    .show();
+            isCampusInfoOpen = true;
+            setContentView(R.layout.activity_campus_info);
         });
 
-        // Open Campus Map
+        // Open Campus Map separately
         cardMap.setOnClickListener(v -> {
             Intent intent = new Intent(
                     HomeActivity.this,
@@ -99,35 +136,5 @@ public class HomeActivity extends Activity {
             startActivity(intent);
             finish();
         });
-    }
-
-    private String readCampusInfo() {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(
-                        getAssets().open("campus_info.txt"),
-                        StandardCharsets.UTF_8
-                ))) {
-
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                stringBuilder.append(line).append("\n");
-            }
-
-        } catch (Exception e) {
-            return "Failed to load campus information. "
-                    + "Please check that campus_info.txt exists "
-                    + "inside the app/src/main/assets folder.";
-        }
-
-        String info = stringBuilder.toString().trim();
-
-        if (info.isEmpty()) {
-            return "Campus information is currently unavailable.";
-        }
-
-        return info;
     }
 }
